@@ -107,64 +107,59 @@
     <script src="js/all.min.js"></script>
     <script>
         const leftBtn = document.querySelector('.scroll-btn.left');
-const rightBtn = document.querySelector('.scroll-btn.right');
-const menuItems = document.querySelector('.menu-items');
+        const rightBtn = document.querySelector('.scroll-btn.right');
+        const menuItems = document.querySelector('.menu-items');
 
-// Initially show/hide buttons
-function updateButtonVisibility() {
-  const scrollLeft = menuItems.scrollLeft;
-  const maxScrollLeft = menuItems.scrollWidth - menuItems.clientWidth;
+        function updateButtonVisibility() {
+        const scrollLeft = menuItems.scrollLeft;
+        const maxScrollLeft = menuItems.scrollWidth - menuItems.clientWidth;
 
-  // Show/hide left button
-  if (scrollLeft > 0) {
-    leftBtn.style.display = 'block';
-  } else {
-    leftBtn.style.display = 'none';
-  }
+        if (scrollLeft > 0) {
+            leftBtn.style.display = 'block';
+        } else {
+            leftBtn.style.display = 'none';
+        }
 
-  // Show/hide right button
-  if (scrollLeft < maxScrollLeft) {
-    rightBtn.style.display = 'block';
-  } else {
-    rightBtn.style.display = 'none';
-  }
-}
+        if (scrollLeft < maxScrollLeft) {
+            rightBtn.style.display = 'block';
+        } else {
+            rightBtn.style.display = 'none';
+        }
+        }
 
-// Scroll left
-leftBtn.addEventListener('click', () => {
-  menuItems.scrollBy({
-    left: -100, // Adjust scroll distance
-    behavior: 'smooth'
-  });
-});
-
-// Scroll right
-rightBtn.addEventListener('click', () => {
-  menuItems.scrollBy({
-    left: 100, // Adjust scroll distance
-    behavior: 'smooth'
-  });
-});
-
-// Update button visibility on scroll
-menuItems.addEventListener('scroll', updateButtonVisibility);
-
-// Update visibility on page load
-updateButtonVisibility();
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    const options = document.querySelectorAll(".switch-option");
-    const languageInput = document.getElementById("language");
-
-    options.forEach(option => {
-        option.addEventListener("click", () => {
-            options.forEach(opt => opt.classList.remove("active"));
-            option.classList.add("active");
-            languageInput.value = option.id === "EN" ? "1" : "0";
+        // Scroll left
+        leftBtn.addEventListener('click', () => {
+        menuItems.scrollBy({
+            left: -100,
+            behavior: 'smooth'
         });
-    });
-});
+        });
+
+        // Scroll right
+        rightBtn.addEventListener('click', () => {
+        menuItems.scrollBy({
+            left: 100,
+            behavior: 'smooth'
+        });
+        });
+
+        // Update button visibility on scroll
+        menuItems.addEventListener('scroll', updateButtonVisibility);
+        updateButtonVisibility();
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const options = document.querySelectorAll(".switch-option");
+            const languageInput = document.getElementById("language");
+
+            options.forEach(option => {
+                option.addEventListener("click", () => {
+                    options.forEach(opt => opt.classList.remove("active"));
+                    option.classList.add("active");
+                    languageInput.value = option.id === "EN" ? "1" : "0";
+                });
+            });
+        });
     </script>
 </body>
 </html>
