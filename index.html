@@ -69,7 +69,11 @@
                         </div>
                     </div>
                     <div class="language-btn">
-                        <a><i class="bi bi-flag"></i> English <i class="fa-solid fa-chevron-down"></i></a>
+                        <div class="billing-switch">
+                            <span id="EN" class="switch-option active">EN</span>
+                            <span id="BN" class="switch-option">BN</span>
+                        </div>
+                        <!-- <a><i class="bi bi-flag"></i> English <i class="fa-solid fa-chevron-down"></i></a> -->
                     </div>
                 </div>
             </div>
@@ -77,6 +81,11 @@
         <!-- *-* Navigation End *-* -->
 
     </header>
+    <!-- <div class="billing-switch">
+        <span id="EN" class="switch-option active">EN</span>
+        <span id="BN" class="switch-option">BN</span>
+    </div> -->
+    <input type="hidden" id="language" name="language" value="1">
 
     <script src="js/all.min.js"></script>
     <script>
@@ -125,6 +134,20 @@ menuItems.addEventListener('scroll', updateButtonVisibility);
 
 // Update visibility on page load
 updateButtonVisibility();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const options = document.querySelectorAll(".switch-option");
+    const languageInput = document.getElementById("language");
+
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            options.forEach(opt => opt.classList.remove("active"));
+            option.classList.add("active");
+            languageInput.value = option.id === "EN" ? "1" : "0";
+        });
+    });
+});
     </script>
 </body>
 </html>

@@ -172,14 +172,13 @@ a{
     border-top: 2px solid rgba(0, 0, 0, 0.07);
     background-color: var(--white);
 }
-.navigation .buttons .profile-btn .icon-btn:hover .profile-btn-drop {
+.navigation .buttons .profile-btn:hover .profile-btn-drop {
     visibility: visible;
     opacity: 1; 
-    background-color: var(--light-red);
 }
 .navigation .buttons .language-btn{
     margin-left: 10px;
-    min-width: 92px;
+    min-width: 60px;
 }
 
 .menu-bar {
@@ -229,3 +228,26 @@ a{
   .scroll-btn:hover {
     background-color: #e0e0e0;
   }
+
+
+  /*Prising*/
+  .billing-switch {
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid var(--light-gray2);
+    border-radius: 7px;
+    width: fit-content;
+}
+
+.switch-option {
+    padding: 3px 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.switch-option.active {
+    background: #dddddd;
+    color: red;
+    font-weight: bold;
+}
