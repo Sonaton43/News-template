@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News-Template</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+
+</head>
+<body>
+    <header>
+        <!-- ~_~ Topbar Area Start ~_~ -->
+        <div class="top-bar">
+            <div class="top-container">
+                <div class="top-time">
+                    <p>Sunday, December 22, 2024</p>
+                    <!-- <p>রবিবার, ডিসেম্বর ২২, ২০২৪</p> -->
+                </div>
+                <div class="top-social">
+                    <a href="#"><i class="fa-brands fa-facebook i"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram i"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin i"></i></a>
+                    <a href="#"><i class="fa-brands fa-google i"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter i"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- *-* Topbar Area End *-* -->
+
+        <!-- ~_~ Navigation Start ~_~ -->
+        <div class="navigation">
+            <div class="navigation-container">
+                <div class="logo">
+                    <h3>News Template</h3>
+                </div>
+                <div class="menu-bar">
+                    <button class="scroll-btn left">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <div class="menu-items">
+                        <div class="menu-item">CSS</div>
+                        <div class="menu-item">Tamil Cinema</div>
+                        <div class="menu-item">Gopal Bhar</div>
+                        <div class="menu-item">Indian Pop Music</div>
+                        <div class="menu-item">Music of Bengal</div>
+                        <div class="menu-item">Motu Patlu</div>
+                        <div class="menu-item">Lo-fi</div>
+                        <div class="menu-item">Live</div>
+                        <div class="menu-item">Thrillers</div>
+                        <div class="menu-item">Drama</div>
+                    </div>
+                    <button class="scroll-btn right">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="buttons">
+                    <div class="signup-btn">
+                        <a href="#">Login</a>
+                        <a href="#">Sign-up</a>
+                    </div>
+                    <div class="profile-btn">
+                        <a class="icon-btn"><i class="far fa-user i"></i></a>
+                        <div class="profile-btn-drop">
+                            <a href="#">Profile</a>
+                            <a href="#">Settings</a>
+                            <a href="#">Logout</a>
+                        </div>
+                    </div>
+                    <div class="language-btn">
+                        <a><i class="bi bi-flag"></i> English <i class="fa-solid fa-chevron-down"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- *-* Navigation End *-* -->
+
+    </header>
+
+    <script src="js/all.min.js"></script>
+    <script>
+        const leftBtn = document.querySelector('.scroll-btn.left');
+const rightBtn = document.querySelector('.scroll-btn.right');
+const menuItems = document.querySelector('.menu-items');
+
+// Initially show/hide buttons
+function updateButtonVisibility() {
+  const scrollLeft = menuItems.scrollLeft;
+  const maxScrollLeft = menuItems.scrollWidth - menuItems.clientWidth;
+
+  // Show/hide left button
+  if (scrollLeft > 0) {
+    leftBtn.style.display = 'block';
+  } else {
+    leftBtn.style.display = 'none';
+  }
+
+  // Show/hide right button
+  if (scrollLeft < maxScrollLeft) {
+    rightBtn.style.display = 'block';
+  } else {
+    rightBtn.style.display = 'none';
+  }
+}
+
+// Scroll left
+leftBtn.addEventListener('click', () => {
+  menuItems.scrollBy({
+    left: -100, // Adjust scroll distance
+    behavior: 'smooth'
+  });
+});
+
+// Scroll right
+rightBtn.addEventListener('click', () => {
+  menuItems.scrollBy({
+    left: 100, // Adjust scroll distance
+    behavior: 'smooth'
+  });
+});
+
+// Update button visibility on scroll
+menuItems.addEventListener('scroll', updateButtonVisibility);
+
+// Update visibility on page load
+updateButtonVisibility();
+    </script>
+</body>
+</html>
