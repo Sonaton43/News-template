@@ -109,22 +109,41 @@
         const leftBtn = document.querySelector('.scroll-btn.left');
         const rightBtn = document.querySelector('.scroll-btn.right');
         const menuItems = document.querySelector('.menu-items');
+        const leftBtnFull = document.querySelector('.scroll-btn-full.left');
+        const rightBtnFull = document.querySelector('.scroll-btn-full.right');
+        const menuItemsFull = document.querySelector('.menu-items-full');
 
         function updateButtonVisibility() {
         const scrollLeft = menuItems.scrollLeft;
         const maxScrollLeft = menuItems.scrollWidth - menuItems.clientWidth;
 
-        if (scrollLeft > 0) {
-            leftBtn.style.display = 'block';
-        } else {
-            leftBtn.style.display = 'none';
-        }
+            if (scrollLeft > 0) {
+                leftBtn.style.display = 'block';
+            } else {
+                leftBtn.style.display = 'none';
+            }
 
-        if (scrollLeft < maxScrollLeft) {
-            rightBtn.style.display = 'block';
-        } else {
-            rightBtn.style.display = 'none';
+            if (scrollLeft < maxScrollLeft) {
+                rightBtn.style.display = 'block';
+            } else {
+                rightBtn.style.display = 'none';
+            }
         }
+        function updateButtonVisibilityFull() {
+        const scrollLeftFull = menuItemsFull.scrollLeft;
+        const maxScrollLeftFull = menuItemsFull.scrollWidth - menuItemsFull.clientWidth;
+
+            if (scrollLeftFull > 0) {
+                leftBtnFull.style.display = 'block';
+            } else {
+                leftBtnFull.style.display = 'none';
+            }
+
+            if (scrollLeft < maxScrollLeft) {
+                rightBtnFull.style.display = 'block';
+            } else {
+                rightBtnFull.style.display = 'none';
+            }
         }
 
         // Scroll left
@@ -143,11 +162,31 @@
         });
         });
 
+        // Scroll left
+        leftBtnFull.addEventListener('click', () => {
+        menuItemsFull.scrollBy({
+            left: -100,
+            behavior: 'smooth'
+        });
+        });
+
+        // Scroll right
+        rightBtnFull.addEventListener('click', () => {
+        menuItemsFull.scrollBy({
+            left: 100,
+            behavior: 'smooth'
+        });
+        });
+
         // Update button visibility on scroll
         menuItems.addEventListener('scroll', updateButtonVisibility);
         updateButtonVisibility();
+        // Update button visibility on scroll
+        menuItemsFull.addEventListener('scroll', updateButtonVisibilityFull);
+        updateButtonVisibilityFull();
 
-
+    </script>
+    <script>
         document.addEventListener("DOMContentLoaded", () => {
             const options = document.querySelectorAll(".switch-option");
             const languageInput = document.getElementById("language");
